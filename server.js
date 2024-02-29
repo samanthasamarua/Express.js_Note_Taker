@@ -1,10 +1,5 @@
 // Import Express.js
 const express = require ('express');
-const fs = require('fs');
-
-
-// Import built-in Node.JS package 'path' to resolve path of files that are located on the server
-const path = require('path');
 
 // Initialise an instance of Express.js 
 
@@ -19,17 +14,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Static middleware pointing to the public folder
-app.use(express.static('public');)
+app.use(express.static('public'));
 
-// Create Express.js routes
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+// Require route files
+const apiRoutes = require('./routes/apiRoutes');
+const htmlRoutes = require('./routes/htmlRoutes');
 
-app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/notes.html'));
-});
+// Use routes
+apiRoutes(app);
+htmlRoutes(app);
 
 
 // listen() method is responsible for listening for incoming connections on the specified port 
