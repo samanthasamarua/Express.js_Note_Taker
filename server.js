@@ -6,7 +6,7 @@ const express = require ('express');
 const app = express();
 
 // Specify on which port the Express.js server will run
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 
 // Middleware for parsing JSON and urlencoded form data
