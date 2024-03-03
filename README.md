@@ -22,10 +22,21 @@ THEN that note appears in the right-hand column and a "New Note" button appears 
 WHEN I click on the "New Note" button in the navigation at the top of the page
 THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column and the button disappears
 
-# Installation
-
 
 # Usage
+To access the application you can either complete the following:
 
+1. Access the application using the deployed heroku application: https://express-js-notetaker-ss-f712381bee8f.herokuapp.com/
+2. Clone the repository and open server.js in the intergrated terminal. Enter "npm i" then "node server.js" and click on "http://localhost:3000" in the terminal
 
+When the application is open, the user will be presented with the home page as shown below 
 
+<img src="./Images/Express_1.png" alt="Note Taker Home Page">
+
+User is required to click Get Started and it will navigate to the note taker page
+
+<img src="./Images/Express_2.png" alt="Note Taker">
+
+When the user enters note, it allows the user to save the note and when selecting the bin icon, this will delete the note. 
+
+<img src="./Images/Express_3.png" alt="Example">

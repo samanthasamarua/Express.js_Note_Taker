@@ -37,17 +37,15 @@ module.exports = (app) => {
         id: uniqid(), // Generate unique id for the new note
       };
 
-      // Push the new note object into the existing array of notes
+      // Pushes new note object into the existing array of notes
       db.push(newNote);
 
-      // Write the updated array of notes back to db.json file
       fs.writeFile(dbFilePath, JSON.stringify(db), (err) => {
         if (err) {
           console.error('Error writing db.json:', err);
           return res.status(500).json({ error: 'Internal Server Error' });
         }
 
-        // Respond with the new note object
         res.json(newNote);
       });
     });
@@ -64,7 +62,6 @@ module.exports = (app) => {
         return res.status(500).json({ error: 'Server Error' });
       }
 
-      // Parse the JSON data into a JavaScript object
       let db = JSON.parse(data);
 
       // Find the index of the note with the specified id in the array
